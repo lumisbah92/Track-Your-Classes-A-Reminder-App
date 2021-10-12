@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -18,7 +19,10 @@ public class ClassActivity extends AppCompatActivity{
 
     private TextView subject,section,ownerName;
     private BottomNavigationView navigationView;
-
+    private String OwnerID = "OwnerID not set";
+    private String OwnerName ="OwnerName not set";
+    private String Subject ="Subject not set";
+    private String Section ="Section not set";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +33,6 @@ public class ClassActivity extends AppCompatActivity{
         subject = findViewById(R.id.subjectcardID);
         section = findViewById(R.id.sectionCardID);
         ownerName = findViewById(R.id.ownerCardID);
-
-        String Subject ="Subject not set";
-        String Section ="Section not set";
-        String OwnerName ="OwnerName not set";
 
         Bundle extras = getIntent().getExtras();
         if(extras != null)
@@ -58,18 +58,26 @@ public class ClassActivity extends AppCompatActivity{
                 {
                     case R.id.ClassInfoID:
                         fragment = new ClassInfoFragment();
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        Bundle data = new Bundle();
+                        data.putString("OwnerID", OwnerName);
+                        fragment.setArguments(data);
+                        fragmentTransaction.replace(R.id.fragmentContainerID, fragment).commit();
                         break;
                     case R.id.ExamInfoID:
                         fragment = new ExamInfoFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
                         break;
                     case R.id.AssignmentInfoID:
                         fragment = new AssignmentInfoFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
                         break;
                     case R.id.PresentationInfoID:
                         fragment = new PresentationInfoFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
+
                 return true;
         }
     };

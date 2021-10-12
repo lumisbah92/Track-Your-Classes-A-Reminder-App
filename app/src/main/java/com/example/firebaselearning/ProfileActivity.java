@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference profileReference,createClassReference,joinClassReference;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private String userID,ownerName="";
+    String userID,ownerName="";
 
     private FloatingActionButton floatinActionBtn;
     private RecyclerView recyclerView;
@@ -227,8 +227,6 @@ public class ProfileActivity extends AppCompatActivity {
                     break;
             }
         }
-
-        // adding swipe background
     };
 
     // Adding Menu on Profile Activity

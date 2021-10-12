@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/Track Your Classes/app/src/main/res/layout/fragment_assignment_info.xml" value="0.20092592592592592" />
+        <entry key="..\:/Android Project/Track Your Classes/app/src/main/res/layout/fragment_presentation_info.xml" value="0.18888888888888888" />
         <entry key="..\:/Android Project/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/fragment_class_info.xml" value="0.1712962962962963" />
         <entry key="..\:/AndroidStudioProjects/FirebaseLearning/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.32314814814814813" />
         <entry key="..\:/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_class.xml" value="0.2490740740740741" />

@@ -13,21 +13,21 @@
         android:layout_height="match_parent"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
+        android:layout_margin="5dp"
         android:orientation="vertical" >
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Announce Something">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
+                android:id="@+id/postEditTextID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -37,12 +37,7 @@
             android:orientation="horizontal" >
 
             <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cloud_upload"
-                />
-            <ImageView
+                android:id="@+id/AddbtnId"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,16 +45,41 @@
                 />
 
             <Button
+                android:id="@+id/postBtnID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Post"
-                android:layout_marginLeft="220dp"
+                android:padding="10dp"
+                android:layout_marginLeft="200dp"
                 android:layout_marginRight="10dp"
-
                 />
 
-
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:layout_below="@id/postBtnID"
+            >
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayoutID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewID"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/swipeRefreshLayoutID"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
 

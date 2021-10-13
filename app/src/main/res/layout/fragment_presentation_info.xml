@@ -15,10 +15,4 @@
         android:textSize="30sp"
         android:text="Presentation Info" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-       />
-
 </FrameLayout>

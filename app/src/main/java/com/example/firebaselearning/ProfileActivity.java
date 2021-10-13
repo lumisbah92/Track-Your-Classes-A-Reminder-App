@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference profileReference,createClassReference,joinClassReference;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private String userID,ownerName="";
+    String userID,ownerName="";
 
     private FloatingActionButton floatinActionBtn;
     private RecyclerView recyclerView;
@@ -136,6 +136,7 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtra("ClassName", list.get(position).getName());
                 intent.putExtra("Section", list.get(position).getSection());
                 intent.putExtra("OwnerName", list.get(position).getOwnerName());
+                intent.putExtra("OwnerID", list.get(position).getUserID());
                 startActivity(intent);
             }
         };
@@ -227,8 +228,6 @@ public class ProfileActivity extends AppCompatActivity {
                     break;
             }
         }
-
-        // adding swipe background
     };
 
     // Adding Menu on Profile Activity

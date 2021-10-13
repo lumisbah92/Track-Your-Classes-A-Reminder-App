@@ -136,6 +136,7 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtra("ClassName", list.get(position).getName());
                 intent.putExtra("Section", list.get(position).getSection());
                 intent.putExtra("OwnerName", list.get(position).getOwnerName());
+                intent.putExtra("OwnerID", list.get(position).getUserID());
                 startActivity(intent);
             }
         };

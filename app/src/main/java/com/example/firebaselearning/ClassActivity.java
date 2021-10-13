@@ -28,7 +28,7 @@ public class ClassActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, new ClassInfoFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, new ClassInfoFragment()).commit();
 
         subject = findViewById(R.id.subjectcardID);
         section = findViewById(R.id.sectionCardID);
@@ -40,6 +40,7 @@ public class ClassActivity extends AppCompatActivity{
             Subject = extras.getString("ClassName");
             Section = extras.getString("Section");
             OwnerName = extras.getString("OwnerName");
+            OwnerID = extras.getString("OwnerID");
         }
 
         subject.setText(Subject);
@@ -57,12 +58,12 @@ public class ClassActivity extends AppCompatActivity{
                 switch (menuItem.getItemId())
                 {
                     case R.id.ClassInfoID:
-                        fragment = new ClassInfoFragment();
+                        ClassInfoFragment classInfoFragment = new ClassInfoFragment();
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         Bundle data = new Bundle();
-                        data.putString("OwnerID", OwnerName);
-                        fragment.setArguments(data);
-                        fragmentTransaction.replace(R.id.fragmentContainerID, fragment).commit();
+                        data.putString("OwnerID", OwnerID);
+                        classInfoFragment.setArguments(data);
+                        fragmentTransaction.replace(R.id.fragmentContainerID, classInfoFragment).commit();
                         break;
                     case R.id.ExamInfoID:
                         fragment = new ExamInfoFragment();

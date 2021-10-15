@@ -1,10 +1,12 @@
 package com.example.firebaselearning;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -41,8 +43,36 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                 PopupMenu popupMenu = new PopupMenu(context, view);
                 popupMenu.getMenuInflater().inflate(R.menu.more_menu_item, popupMenu.getMenu());
                 popupMenu.show();
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.editPostID:
+                                Toast.makeText(context, "Edit your Post", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.deletePostID:
+                                Toast.makeText(context, "Delete your Post", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.setAlarmID:
+                                Toast.makeText(context, "Set an Alarm", Toast.LENGTH_SHORT).show();
+                                setAnAlarm();
+                                break;
+                        }
+
+                        return true;
+                    }
+                });
             }
         });
+    }
+
+    public void  setAnAlarm() {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_for_alarm);
+
+
+        dialog.show();
     }
 
     @Override
@@ -57,7 +87,6 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             Post = itemView.findViewById(R.id.PostCardID);
             moreBtn = itemView.findViewById(R.id.MoreID);
         }

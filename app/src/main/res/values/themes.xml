@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FirebaseLearning" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/teal_200</item>
+        <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryVariant">#4B4B4B</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

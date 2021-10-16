@@ -91,7 +91,6 @@ public class ClassInfoFragment extends Fragment{
                     postEditText.requestFocus();
                     return;
                 }
-
                postingDatabase.child(OwnerID).child(postingDatabase.push().getKey()).child("Post").setValue(post);
 
             }

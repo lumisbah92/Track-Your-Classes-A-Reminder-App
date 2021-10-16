@@ -42,7 +42,7 @@ public class ClassActivity extends AppCompatActivity{
             OwnerName = extras.getString("OwnerName");
             OwnerID = extras.getString("OwnerID");
         }
-
+        OwnerID+=Subject;
         subject.setText(Subject);
         section.setText(Section);
         ownerName.setText(OwnerName);

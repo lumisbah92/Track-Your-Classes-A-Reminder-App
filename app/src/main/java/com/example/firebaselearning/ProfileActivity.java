@@ -3,6 +3,8 @@ package com.example.firebaselearning;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -27,7 +29,9 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,6 +44,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -54,10 +60,27 @@ public class ProfileActivity extends AppCompatActivity {
     private AdapterClass adapterClass;
     private AdapterClass.RecyclerViewClickListener listener;
 
+    private MaterialToolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private CircleImageView profilePic;
+    private TextView fullnameProfile, sectionProfile;
+    private View headerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        toolbar = findViewById(R.id.topAppBar);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+        headerView = navigationView.getHeaderView(0);
+
+        profilePic = headerView.findViewById(R.id.profilepic);
+        fullnameProfile = headerView.findViewById(R.id.FullNameProfile);
+        sectionProfile = headerView.findViewById(R.id.SectionProfile);
+
 
         profileReference = FirebaseDatabase.getInstance().getReference("Users");
         createClassReference = FirebaseDatabase.getInstance().getReference("Create Class");
@@ -70,9 +93,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerViewID);
 
-        final TextView fullnameProfile = findViewById(R.id.FullNameProfile);
-        final TextView sectionProfile = findViewById(R.id.SectionProfile);
-
         // fatching Profile data from website
         profileReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -83,9 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
                     String fullname = userProfile.fullname;
                     String email = userProfile.email;
                     String section = userProfile.section;
-
                     ownerName = fullname;
-
                     fullnameProfile.setText(fullname);
                     sectionProfile.setText(section);
                 }
@@ -94,6 +112,43 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ProfileActivity.this, "Something wrong happened!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // NavBer
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
+
+                int id = item.getItemId();
+                drawerLayout.closeDrawer(GravityCompat.START);
+                switch (id)
+                {
+                    case R.id.nav_home:
+                        startActivity(new Intent(ProfileActivity.this, ProfileActivity.class)); break;
+                    case R.id.nav_EditProfile:
+                        Toast.makeText(ProfileActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
+                    case R.id.settings:
+                        Toast.makeText(ProfileActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
+                    case R.id.nav_logout:
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                        break;
+                    case R.id.nav_share:
+                        Toast.makeText(ProfileActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();break;
+                    case R.id.nav_rate:
+                        Toast.makeText(ProfileActivity.this, "Rate us is Clicked",Toast.LENGTH_SHORT).show();break;
+                    default:
+                        return true;
+
+                }
+                return true;
             }
         });
 
@@ -229,30 +284,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
     };
-
-    // Adding Menu on Profile Activity
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.manu_layout, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if(item.getItemId() == R.id.LogoutMenuID){
-
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     // Create Class Dialog Showing
     void showCreateClassDialog() {

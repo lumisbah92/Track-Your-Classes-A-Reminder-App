@@ -54,8 +54,13 @@
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_class.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_contacts_24.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_class.xml" value="0.10371376811594203" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_forgot_password.xml" value="0.18055555555555555" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_profile.xml" value="0.18055555555555555" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_register_user.xml" value="0.22" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/cardview_layout.xml" value="0.18055555555555555" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/dialog_create_class.xml" value="0.18055555555555555" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/dialog_join_class.xml" value="0.18055555555555555" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/fragment_assignment_info.xml" value="0.11005434782608696" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/fragment_presentation_info.xml" value="0.11005434782608696" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_forgot_password.xml" value="0.2916666666666667" />

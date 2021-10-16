@@ -138,7 +138,7 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                         if(hourOfDay>12)
                             tvOnceTime.setText(String.format("%02d:%02d", hourOfDay-12, minute) + "PM");
                         else
-                            tvOnceTime.setText(String.format("%02d:%02d", hourOfDay, minute) + "AM");
+                            tvOnceTime.setText(String.format("%02d:%02d", hourOfDay, minute) + " AM");
                         mHour = hourOfDay;
                         mMinute = minute;
                     }
@@ -178,8 +178,9 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                     etOnceMessage.setError("Message can't be empty!");
                 }
                 else{
+                    String temp = tvOnceTime.getText().toString();
                     alarmReceiver.setOneTimeAlarm(context, AlarmReceiver.TYPE_ONE_TIME,
-                            tvOnceDate.getText().toString(), tvOnceTime.getText().toString(),
+                            tvOnceDate.getText().toString(), temp.substring(0,4),
                             etOnceMessage.getText().toString());
                 }
             }
@@ -195,8 +196,9 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                     etRepeatingMessage.setError("Message can't be empty!");
                 }
                 else{
+                    String temp = tvRepeatingTime.getText().toString();
                     alarmReceiver.setRepeatingAlarm(context, AlarmReceiver.TYPE_Repeating,
-                            tvRepeatingTime.getText().toString(),
+                            temp.substring(0,4),
                             etRepeatingMessage.getText().toString());
                 }
             }

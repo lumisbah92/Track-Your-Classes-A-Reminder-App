@@ -135,11 +135,14 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                 TimePickerDialog timePickerDialog = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-                        tvOnceTime.setText(String.format("%02d:%02d", hourOfDay, minute));
+                        if(hourOfDay>12)
+                            tvOnceTime.setText(String.format("%02d:%02d", hourOfDay-12, minute) + "PM");
+                        else
+                            tvOnceTime.setText(String.format("%02d:%02d", hourOfDay, minute) + "AM");
                         mHour = hourOfDay;
                         mMinute = minute;
                     }
-                }, mHour, mMinute, true);
+                }, mHour, mMinute, false);
                 timePickerDialog.show();
             }
         });
@@ -150,11 +153,14 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                 TimePickerDialog timePickerDialog = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-                        tvRepeatingTime.setText(String.format("%02d:%02d", hourOfDay, minute));
+                        if(hourOfDay>12)
+                            tvRepeatingTime.setText(String.format("%02d:%02d", hourOfDay-12, minute) + " PM");
+                        else
+                            tvRepeatingTime.setText(String.format("%02d:%02d", hourOfDay, minute) + " AM");
                         mHourRepeat = hourOfDay;
                         mMinuteRepeat = minute;
                     }
-                }, mHourRepeat, mMinuteRepeat, true);
+                }, mHourRepeat, mMinuteRepeat, false);
                 timePickerDialog.show();
             }
         });

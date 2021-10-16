@@ -66,8 +66,12 @@ public class ClassActivity extends AppCompatActivity{
                         fragmentTransaction.replace(R.id.fragmentContainerID, classInfoFragment).commit();
                         break;
                     case R.id.ExamInfoID:
-                        fragment = new ExamInfoFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
+                        ExamInfoFragment examInfoFragment = new ExamInfoFragment();
+                        FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                        Bundle data1 = new Bundle();
+                        data1.putString("OwnerID", OwnerID);
+                        examInfoFragment.setArguments(data1);
+                        fragmentTransaction1.replace(R.id.fragmentContainerID, examInfoFragment).commit();
                         break;
                     case R.id.AssignmentInfoID:
                         fragment = new AssignmentInfoFragment();

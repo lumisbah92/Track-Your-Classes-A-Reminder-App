@@ -135,7 +135,7 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                 TimePickerDialog timePickerDialog = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-                        tvOnceDate.setText(String.format("%02d:%02d", hourOfDay, minute));
+                        tvOnceTime.setText(String.format("%02d:%02d", hourOfDay, minute));
                         mHour = hourOfDay;
                         mMinute = minute;
                     }
@@ -175,6 +175,34 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
                     alarmReceiver.setOneTimeAlarm(context, AlarmReceiver.TYPE_ONE_TIME,
                             tvOnceDate.getText().toString(), tvOnceTime.getText().toString(),
                             etOnceMessage.getText().toString());
+                }
+            }
+        });
+
+        btnSetRepeatingAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(tvRepeatingTime.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(context, "Time is empty", Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(etRepeatingMessage.getText().toString())){
+                    etRepeatingMessage.setError("Message can't be empty!");
+                }
+                else{
+                    alarmReceiver.setRepeatingAlarm(context, AlarmReceiver.TYPE_Repeating,
+                            tvRepeatingTime.getText().toString(),
+                            etRepeatingMessage.getText().toString());
+                }
+            }
+        });
+
+        btnCancelRepeatingAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(alarmReceiver.isAlarmSet(context, AlarmReceiver.TYPE_Repeating)){
+                    tvRepeatingTime.setText("");
+                    etRepeatingMessage.setText("");
+                    alarmReceiver.cencelAlarm(context, AlarmReceiver.TYPE_Repeating);
                 }
             }
         });

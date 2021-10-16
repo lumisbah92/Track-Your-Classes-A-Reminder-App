@@ -33,7 +33,7 @@ public class ClassInfoFragment extends Fragment{
     private ImageView addBtn;
     private Button postBtn;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private DatabaseReference postingDatabase,UserDatabase;
+    private DatabaseReference postingDatabase;
     private EditText postEditText;
     private String OwnerID = "OwnerID not set";
     private RecyclerView recyclerView;
@@ -52,7 +52,7 @@ public class ClassInfoFragment extends Fragment{
         }
 
 
-        postingDatabase = FirebaseDatabase.getInstance().getReference("PostInClassActivity");
+        postingDatabase = FirebaseDatabase.getInstance().getReference("PostInClassFragment");
 
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayoutID);
@@ -91,8 +91,8 @@ public class ClassInfoFragment extends Fragment{
                     postEditText.requestFocus();
                     return;
                 }
-               postingDatabase.child(OwnerID).child(postingDatabase.push().getKey()).child("Post").setValue(post);
-
+                postingDatabase.child(OwnerID).child(postingDatabase.push().getKey()).child("Post").setValue(post);
+                postEditText.setText("");
             }
         });
 

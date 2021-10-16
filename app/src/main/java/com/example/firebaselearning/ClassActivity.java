@@ -54,7 +54,6 @@ public class ClassActivity extends AppCompatActivity{
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment fragment = null;
                 switch (menuItem.getItemId())
                 {
                     case R.id.ClassInfoID:
@@ -66,16 +65,28 @@ public class ClassActivity extends AppCompatActivity{
                         fragmentTransaction.replace(R.id.fragmentContainerID, classInfoFragment).commit();
                         break;
                     case R.id.ExamInfoID:
-                        fragment = new ExamInfoFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
+                        ExamInfoFragment examInfoFragment = new ExamInfoFragment();
+                        FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                        Bundle data1 = new Bundle();
+                        data1.putString("OwnerID", OwnerID);
+                        examInfoFragment.setArguments(data1);
+                        fragmentTransaction1.replace(R.id.fragmentContainerID, examInfoFragment).commit();
                         break;
                     case R.id.AssignmentInfoID:
-                        fragment = new AssignmentInfoFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
+                        AssignmentInfoFragment assignmentInfoFragment = new AssignmentInfoFragment();
+                        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                        Bundle data2 = new Bundle();
+                        data2.putString("OwnerID", OwnerID);
+                        assignmentInfoFragment.setArguments(data2);
+                        fragmentTransaction2.replace(R.id.fragmentContainerID, assignmentInfoFragment).commit();
                         break;
                     case R.id.PresentationInfoID:
-                        fragment = new PresentationInfoFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, fragment).commit();
+                        PresentationInfoFragment presentationInfoFragment = new PresentationInfoFragment();
+                        FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                        Bundle data3 = new Bundle();
+                        data3.putString("OwnerID", OwnerID);
+                        presentationInfoFragment.setArguments(data3);
+                        fragmentTransaction3.replace(R.id.fragmentContainerID, presentationInfoFragment).commit();
                         break;
                 }
 

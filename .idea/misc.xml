@@ -62,9 +62,27 @@
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable-v24/round_bg.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable-v24/round_border.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable-v24/wave.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_access_time_black_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_access_time_white_24.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_add.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_archive_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_class.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_contacts_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_exam.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_person_add_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_baseline_presentation.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_date_range_black_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_date_range_white_24.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/ic_forgot.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/rate.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/setting.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/drawable/share.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_class.xml" value="0.10371376811594203" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_forgot_password.xml" value="0.18055555555555555" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/activity_main.xml" value="0.18" />
@@ -75,6 +93,12 @@
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/dialog_join_class.xml" value="0.18055555555555555" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/fragment_assignment_info.xml" value="0.11005434782608696" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/fragment_presentation_info.xml" value="0.11005434782608696" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/add_menu_item.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/drop_down_menu.xml" value="0.15" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/more_menu_item.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/my_navigation_items.xml" value="0.25" />
+        <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/navigation_item.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_forgot_password.xml" value="0.2916666666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_profile.xml" value="0.25" />

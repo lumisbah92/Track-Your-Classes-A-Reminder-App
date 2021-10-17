@@ -11,13 +11,12 @@
         android:id="@+id/navBarID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2F74AA"
-        app:itemTextColor="#0C0C0C"
-        app:itemRippleColor="#F7F8F8"
-        app:itemIconTint="@color/navigation_color"
-        app:menu="@menu/navigation_item"
+        android:background="#0099FF"
         android:paddingBottom="15dp"
-        >
+        app:itemIconTint="@color/navigation_color"
+        app:itemRippleColor="#F7F8F8"
+        app:itemTextColor="#0C0C0C"
+        app:menu="@menu/navigation_item">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

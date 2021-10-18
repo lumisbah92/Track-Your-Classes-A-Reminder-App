@@ -55,11 +55,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_person_add_24" />
 
-
     <EditText
         android:id="@+id/fullnameID"
         android:layout_width="350dp"
         android:layout_height="54dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_border"
         android:drawableStart="@drawable/ic_baseline_contacts_24"
         android:drawablePadding="16dp"
@@ -67,7 +67,7 @@
         android:hint="Full Name"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -75,7 +75,7 @@
         android:id="@+id/sectionID"
         android:layout_width="350dp"
         android:layout_height="54dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_border"
         android:drawableStart="@drawable/ic_baseline_class"
         android:drawablePadding="16dp"
@@ -132,6 +132,17 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwardID" />
+    
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwardID"
+        />
 
     <TextView
         android:id="@+id/alreadyHaveAccount"

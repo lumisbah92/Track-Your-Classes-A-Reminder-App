@@ -1,6 +1,7 @@
 package com.example.firebaselearning;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -13,22 +14,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.webkit.MimeTypeMap;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -40,6 +49,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -170,7 +183,8 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.nav_home:
                         startActivity(new Intent(ProfileActivity.this, ProfileActivity.class)); break;
                     case R.id.nav_EditProfile:
-                        Toast.makeText(ProfileActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
+                        showDialogForEditProfile();
+                        break;
                     case R.id.settings:
                         Toast.makeText(ProfileActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_logout:
@@ -321,6 +335,87 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
     };
+
+    private ImageView imageView;
+    private Button UploadImgBtn;
+    private ProgressDialog progressDialog;
+    private StorageReference storageReference;
+    private Uri imageUri;
+
+    void showDialogForEditProfile(){
+        final Dialog dialog = new Dialog(ProfileActivity.this);
+        dialog.setContentView(R.layout.dialog_for_edit_profile);
+
+        imageView = findViewById(R.id.ChooseImageID);
+        UploadImgBtn = findViewById(R.id.UploadImgID);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent , 100);
+            }
+        });
+
+        UploadImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageUri != null){
+                    uploadToFirebase(imageUri);
+                }else{
+                    Toast.makeText(ProfileActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode ==100 && data != null && data.getData() != null){
+            imageUri = data.getData();
+            imageView.setImageURI(imageUri);
+        }
+    }
+
+    private void uploadToFirebase(Uri uri){
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading File....");
+        progressDialog.show();
+
+        storageReference = FirebaseStorage.getInstance().getReference("Images/").child(System.currentTimeMillis() + "." + getFileExtension(uri));
+
+        storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                Toast.makeText(ProfileActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                imageView.setImageResource(R.drawable.ic_add_photo_alternate_24);
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ProfileActivity.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
+            }
+        });
+    }
+
+    private String getFileExtension(Uri mUri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(mUri));
+
+    }
 
     // Create Class Dialog Showing
     void showCreateClassDialog() {

@@ -55,21 +55,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_person_add_24" />
 
-    <ImageView
-        android:id="@+id/UploadImageID"
-        android:layout_width="91dp"
-        android:layout_height="89dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view2"
-        app:srcCompat="@drawable/ic_add_photo_alternate_24" />
-
     <EditText
         android:id="@+id/fullnameID"
         android:layout_width="350dp"
         android:layout_height="54dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_border"
         android:drawableStart="@drawable/ic_baseline_contacts_24"
         android:drawablePadding="16dp"
@@ -79,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UploadImageID" />
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <EditText
         android:id="@+id/sectionID"

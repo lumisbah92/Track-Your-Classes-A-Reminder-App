@@ -146,43 +146,6 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.nav_home:
                         startActivity(new Intent(ProfileActivity.this, ProfileActivity.class)); break;
                     case R.id.nav_EditProfile:
-                        Toast.makeText(ProfileActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.settings:
-                        Toast.makeText(ProfileActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.nav_logout:
-                        FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-                        break;
-                    case R.id.nav_share:
-                        Toast.makeText(ProfileActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.nav_rate:
-                        Toast.makeText(ProfileActivity.this, "Rate us is Clicked",Toast.LENGTH_SHORT).show();break;
-                    default:
-                        return true;
-
-                }
-                return true;
-            }
-        });
-
-        // NavBer
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
-
-                int id = item.getItemId();
-                drawerLayout.closeDrawer(GravityCompat.START);
-                switch (id)
-                {
-                    case R.id.nav_home:
-                        startActivity(new Intent(ProfileActivity.this, ProfileActivity.class)); break;
-                    case R.id.nav_EditProfile:
                         showDialogForEditProfile();
                         break;
                     case R.id.settings:

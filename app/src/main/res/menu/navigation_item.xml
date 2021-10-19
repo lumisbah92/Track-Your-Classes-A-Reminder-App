@@ -8,14 +8,14 @@
     <item
         android:id="@+id/ExamInfoID"
         android:title="Exam"
-        android:icon="@drawable/ic_baseline_exam"/>
+        android:icon="@drawable/exam_info"/>
     <item
         android:id="@+id/AssignmentInfoID"
         android:title="Assignment"
-        android:icon="@drawable/ic_baseline_assignment_24"/>
+        android:icon="@drawable/assignment_info"/>
     <item
         android:id="@+id/PresentationInfoID"
         android:title="Presentation"
-        android:icon="@drawable/ic_baseline_presentation"/>
+        android:icon="@drawable/presentation_info"/>
 
 </menu>

@@ -101,14 +101,23 @@
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/more_menu_item.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/my_navigation_items.xml" value="0.25" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/navigation_item.xml" value="0.1" />
-        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_class.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/class_info.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/class_setting.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/ic_baseline_class.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/ic_baseline_exam.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/more_class_info.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/presentation_info.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_class.xml" value="0.2" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_profile.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_temp.xml" value="0.31851851851851853" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/cardview_for_post.xml" value="0.32592592592592595" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/cardview_layout.xml" value="0.32592592592592595" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/dialog_create_class.xml" value="0.3388888888888889" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/dialog_for_alarm.xml" value="0.31851851851851853" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/dialog_for_edit_profile.xml" value="0.3388888888888889" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/nav_header.xml" value="0.31851851851851853" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/temp_activity.xml" value="0.31851851851851853" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/my_navigation_items.xml" value="0.3564102564102564" />
         <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/navigation_item.xml" value="0.31851851851851853" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_forgot_password.xml" value="0.2916666666666667" />

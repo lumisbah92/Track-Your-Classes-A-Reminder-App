@@ -8,20 +8,42 @@
     tools:context=".ClassActivity">
 
     <TextView
-        android:id="@+id/title_view"
+        android:id="@+id/tvClassName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_margin="12dp"
+        android:layout_marginTop="10dp"
         android:text="Class Name"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvClassName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="Section"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvOwnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="Owner Name"
+        android:textColor="#fff"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/title_view"
+        android:layout_below="@id/tvOwnerName"
         android:layout_margin="20dp"
         android:columnCount="2"
         android:rowCount="3">

@@ -17,7 +17,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class ClassActivity extends AppCompatActivity {
 
-    private TextView subject, section, ownerName;
+    private TextView className, section, ownerName;
     private String OwnerID = "OwnerID not set";
     private String OwnerName = "OwnerName not set";
     private String Subject = "Subject not set";
@@ -30,9 +30,9 @@ public class ClassActivity extends AppCompatActivity {
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, new ClassInfoFragment()).commit();
 
-        subject = findViewById(R.id.subjectcardID);
-        section = findViewById(R.id.sectionCardID);
-        ownerName = findViewById(R.id.ownerCardID);
+        className = findViewById(R.id.tvClassName);
+        section = findViewById(R.id.tvSection);
+        ownerName = findViewById(R.id.tvOwnerName);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -42,7 +42,7 @@ public class ClassActivity extends AppCompatActivity {
             OwnerID = extras.getString("OwnerID");
         }
         OwnerID += Subject;
-        subject.setText(Subject);
+        className.setText(Subject);
         section.setText(Section);
         ownerName.setText(OwnerName);
     }

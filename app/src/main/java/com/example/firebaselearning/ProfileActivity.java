@@ -17,6 +17,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,11 +51,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -79,6 +84,12 @@ public class ProfileActivity extends AppCompatActivity {
     private CircleImageView profilePic;
     private TextView fullnameProfile, sectionProfile;
     private View headerView;
+
+    private ImageView imageView;
+    private Button UploadImgBtn;
+    private ProgressDialog progressDialog;
+    private StorageReference storageReference;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +130,31 @@ public class ProfileActivity extends AppCompatActivity {
                     ownerName = fullname;
                     fullnameProfile.setText(fullname);
                     sectionProfile.setText(section);
+
+                    profilePic.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            storageReference = FirebaseStorage.getInstance().getReference("Images/"+userID);
+                            try {
+                                File localfile = File.createTempFile("tempfile", ".jpg");
+                                storageReference.getFile(localfile)
+                                        .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                                Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
+                                                profilePic.setImageBitmap(bitmap);
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(ProfileActivity.this, "Failed to retrieve image", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }catch (IOException e){
+                                e.printStackTrace();
+                            }
+                        }
+                    });
                 }
             }
 
@@ -299,18 +335,12 @@ public class ProfileActivity extends AppCompatActivity {
         }
     };
 
-    private ImageView imageView;
-    private Button UploadImgBtn;
-    private ProgressDialog progressDialog;
-    private StorageReference storageReference;
-    private Uri imageUri;
-
     void showDialogForEditProfile(){
         final Dialog dialog = new Dialog(ProfileActivity.this);
         dialog.setContentView(R.layout.dialog_for_edit_profile);
 
-        imageView = findViewById(R.id.ChooseImageID);
-        UploadImgBtn = findViewById(R.id.UploadImgID);
+        imageView = dialog.findViewById(R.id.ChooseImageID);
+        UploadImgBtn = dialog.findViewById(R.id.UploadImgID);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -330,6 +360,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(ProfileActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
                 }
+                dialog.dismiss();
             }
         });
 
@@ -340,7 +371,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode ==100 && data != null && data.getData() != null){
+        if (requestCode == 100 && data != null && data.getData() != null){
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
         }
@@ -351,7 +382,7 @@ public class ProfileActivity extends AppCompatActivity {
         progressDialog.setTitle("Uploading File....");
         progressDialog.show();
 
-        storageReference = FirebaseStorage.getInstance().getReference("Images/").child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        storageReference = FirebaseStorage.getInstance().getReference("Images/").child(userID);
 
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override

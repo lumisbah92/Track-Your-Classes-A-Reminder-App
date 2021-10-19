@@ -309,29 +309,30 @@ public class ProfileActivity extends AppCompatActivity {
         final Dialog dialog = new Dialog(ProfileActivity.this);
         dialog.setContentView(R.layout.dialog_for_edit_profile);
 
-        imageView = findViewById(R.id.ChooseImageID);
-        UploadImgBtn = findViewById(R.id.UploadImgID);
+        imageView = dialog.findViewById(R.id.ChooseImageID);
+        UploadImgBtn = dialog.findViewById(R.id.UploadImgID);
 
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent galleryIntent = new Intent();
-//                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-//                galleryIntent.setType("image/*");
-//                startActivityForResult(galleryIntent , 100);
-//            }
-//        });
-//
-//        UploadImgBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (imageUri != null){
-//                    uploadToFirebase(imageUri);
-//                }else{
-//                    Toast.makeText(ProfileActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent , 100);
+            }
+        });
+
+        UploadImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageUri != null){
+                    uploadToFirebase(imageUri);
+                }else{
+                    Toast.makeText(ProfileActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+            }
+        });
 
         dialog.show();
     }
@@ -340,7 +341,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode ==100 && data != null && data.getData() != null){
+        if (requestCode == 100 && data != null && data.getData() != null){
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
         }
@@ -351,7 +352,7 @@ public class ProfileActivity extends AppCompatActivity {
         progressDialog.setTitle("Uploading File....");
         progressDialog.show();
 
-        storageReference = FirebaseStorage.getInstance().getReference("Images/").child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        storageReference = FirebaseStorage.getInstance().getReference("Images/").child(userID);
 
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override

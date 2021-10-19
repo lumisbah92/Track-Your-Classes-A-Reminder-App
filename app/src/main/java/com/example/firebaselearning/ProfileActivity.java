@@ -312,26 +312,26 @@ public class ProfileActivity extends AppCompatActivity {
         imageView = findViewById(R.id.ChooseImageID);
         UploadImgBtn = findViewById(R.id.UploadImgID);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent galleryIntent = new Intent();
-                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent.setType("image/*");
-                startActivityForResult(galleryIntent , 100);
-            }
-        });
-
-        UploadImgBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (imageUri != null){
-                    uploadToFirebase(imageUri);
-                }else{
-                    Toast.makeText(ProfileActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent galleryIntent = new Intent();
+//                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+//                galleryIntent.setType("image/*");
+//                startActivityForResult(galleryIntent , 100);
+//            }
+//        });
+//
+//        UploadImgBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (imageUri != null){
+//                    uploadToFirebase(imageUri);
+//                }else{
+//                    Toast.makeText(ProfileActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
         dialog.show();
     }

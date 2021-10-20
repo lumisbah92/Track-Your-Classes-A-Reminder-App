@@ -1,7 +1,10 @@
 package com.example.firebaselearning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,8 @@ public class ClassActivity extends AppCompatActivity {
     private String OwnerName = "OwnerName not set";
     private String Subject = "Subject not set";
     private String Section = "Section not set";
+
+    private GridLayout girdLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,5 +50,28 @@ public class ClassActivity extends AppCompatActivity {
         className.setText(Subject);
         section.setText(Section);
         ownerName.setText(OwnerName);
+
+        girdLayout = findViewById(R.id.gridLayoutID);
+        setSingleEvent(girdLayout);
+    }
+
+    private void setSingleEvent(GridLayout girdLayout) {
+
+        for(int i=0; i<girdLayout.getChildCount(); i++)
+        {
+            CardView cardView = (CardView) girdLayout.getChildAt(i);
+            final int index = i;
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(index == 0)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, ClassInfo.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+
     }
 }

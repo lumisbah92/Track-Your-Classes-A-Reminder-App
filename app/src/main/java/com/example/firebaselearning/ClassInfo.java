@@ -33,7 +33,7 @@ public class ClassInfo extends AppCompatActivity {
     private EditText postEditText;
     private String OwnerID = "OwnerID not set";
     private String Title = "Title not set";
-    private String ClassName = "ClassName not set";
+    private String ClassName = "ClassName";
     private RecyclerView recyclerView;
     private ArrayList<PostingModel> list;
     private AdapterClassForPost adapterClassForPost;

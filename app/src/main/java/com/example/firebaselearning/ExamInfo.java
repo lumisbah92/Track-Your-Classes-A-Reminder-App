@@ -33,6 +33,7 @@ public class ExamInfo extends AppCompatActivity {
     private EditText postEditText;
     private String OwnerID = "OwnerID not set";
     private String Title = "Title not set";
+    private String ClassName = "ClassName not set";
     private RecyclerView recyclerView;
     private ArrayList<PostingModel> list;
     private AdapterClassForPost adapterClassForPost;
@@ -48,12 +49,13 @@ public class ExamInfo extends AppCompatActivity {
         if (extras != null) {
             Title = extras.getString("Title");
             OwnerID = extras.getString("OwnerID");
+            ClassName = extras.getString("ClassName");
         }
-        OwnerID += Title;
+        OwnerID += ClassName;
         title.setText(Title);
 
 
-        postingDatabase = FirebaseDatabase.getInstance().getReference("PostInClassFragment");
+        postingDatabase = FirebaseDatabase.getInstance().getReference("PostInExamInfo");
 
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayoutID);

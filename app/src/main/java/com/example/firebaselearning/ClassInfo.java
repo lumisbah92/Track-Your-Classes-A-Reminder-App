@@ -49,12 +49,13 @@ public class ClassInfo extends AppCompatActivity {
         if (extras != null) {
             Title = extras.getString("Title");
             OwnerID = extras.getString("OwnerID");
+            ClassName = extras.getString("ClassName");
         }
-        OwnerID += Title;
+        OwnerID += ClassName;
         title.setText(Title);
 
 
-        postingDatabase = FirebaseDatabase.getInstance().getReference("PostInClassFragment");
+        postingDatabase = FirebaseDatabase.getInstance().getReference("PostInClassInfo");
 
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayoutID);

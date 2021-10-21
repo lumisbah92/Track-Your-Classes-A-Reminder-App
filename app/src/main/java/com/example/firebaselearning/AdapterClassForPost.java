@@ -46,13 +46,13 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterClassForPost.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.cardview_for_post, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterClassForPost.MyViewHolder holder, int position) {
         PostingModel postingModel = list.get(position);
         holder.Post.setText(postingModel.getPost());
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {

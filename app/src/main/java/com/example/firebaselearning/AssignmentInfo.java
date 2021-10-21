@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ClassInfo extends AppCompatActivity {
+public class AssignmentInfo extends AppCompatActivity {
 
     private ImageView addBtn;
     private Button postBtn;
@@ -33,7 +33,6 @@ public class ClassInfo extends AppCompatActivity {
     private EditText postEditText;
     private String OwnerID = "OwnerID not set";
     private String Title = "Title not set";
-    private String ClassName = "ClassName not set";
     private RecyclerView recyclerView;
     private ArrayList<PostingModel> list;
     private AdapterClassForPost adapterClassForPost;
@@ -42,7 +41,7 @@ public class ClassInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_class_info);
+        setContentView(R.layout.activity_assignment_info);
 
         title = findViewById(R.id.TitleID);
         Bundle extras = getIntent().getExtras();

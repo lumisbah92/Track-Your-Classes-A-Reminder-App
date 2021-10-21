@@ -67,7 +67,38 @@ public class ClassActivity extends AppCompatActivity {
                     if(index == 0)
                     {
                         Intent intent = new Intent(ClassActivity.this, ClassInfo.class);
+                        intent.putExtra("Title", "Class Info");
+                        intent.putExtra("OwnerID", OwnerID);
                         startActivity(intent);
+                    }
+                    else if(index == 1)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, ExamInfo.class);
+                        intent.putExtra("Title", "Exam Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 2)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, AssignmentInfo.class);
+                        intent.putExtra("Title", "Assignment Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 3)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, PresentationInfo.class);
+                        intent.putExtra("Title", "Presentation Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 4)
+                    {
+                        Toast.makeText(getApplicationContext(), "Settings Button is Clicked", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(index == 5)
+                    {
+                        Toast.makeText(getApplicationContext(), "More Button is Clicked", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

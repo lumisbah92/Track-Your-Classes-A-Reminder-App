@@ -21,8 +21,9 @@ tools:context=".ProfileActivity">
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="Track Your Classes"
+                app:titleTextColor="@color/white"
                 app:navigationIcon="@drawable/ic_baseline_menu_24"
-                android:background="@color/white"
+                android:background="#2196F3"
                 />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -31,7 +32,8 @@ tools:context=".ProfileActivity">
             android:id="@+id/swipeRefreshLayoutID"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/AppBar">
+            android:layout_below="@id/AppBar"
+            android:layout_marginTop="0dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewID"
@@ -49,6 +51,8 @@ tools:context=".ProfileActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="1dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:backgroundTint="@color/color_primary"

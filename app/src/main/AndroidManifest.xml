@@ -26,13 +26,7 @@
             android:name=".ClassInfo"
             android:exported="true" />
         <activity
-            android:name=".TempActivity"
-            android:exported="true" />
-        <activity
             android:name=".ClassActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ClassRecyclerView"
             android:exported="true" />
         <activity
             android:name=".ForgotPasswordActivity"

@@ -94,40 +94,40 @@ public class PresentationInfoFragment extends Fragment {
             }
         });
 
-        // RecyclerView for Post
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-
-        list = new ArrayList<>();
-        adapterClassForPost = new AdapterClassForPost(getContext(), list);
-        recyclerView.setAdapter(adapterClassForPost);
-
-        postingDatabase.child(OwnerID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for(DataSnapshot DS: snapshot.getChildren()) {
-                    PostingModel postingModel = DS.getValue(PostingModel.class);
-                    list.add(postingModel);
-                }
-                adapterClassForPost.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                adapterClassForPost.notifyDataSetChanged();
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
+//        // RecyclerView for Post
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+//        linearLayoutManager.setReverseLayout(true);
+//        linearLayoutManager.setStackFromEnd(true);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//
+//        list = new ArrayList<>();
+//        adapterClassForPost = new AdapterClassForPost(getContext(), list);
+//        recyclerView.setAdapter(adapterClassForPost);
+//
+//        postingDatabase.child(OwnerID).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                list.clear();
+//                for(DataSnapshot DS: snapshot.getChildren()) {
+//                    PostingModel postingModel = DS.getValue(PostingModel.class);
+//                    list.add(postingModel);
+//                }
+//                adapterClassForPost.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                adapterClassForPost.notifyDataSetChanged();
+//                swipeRefreshLayout.setRefreshing(false);
+//            }
+//        });
 
         return view;
     }

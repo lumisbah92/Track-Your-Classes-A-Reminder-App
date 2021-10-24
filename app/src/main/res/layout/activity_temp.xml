@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="?attr/selectableItemBackground"
-    android:padding="10dp">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".TempActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navBarID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:paddingBottom="15dp"
+        app:itemIconTint="@color/navigation_color"
+        app:itemRippleColor="#F7F8F8"
+        app:itemTextColor="#0C0C0C"
+        app:menu="@menu/navigation_item">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <RelativeLayout
+        android:id="@+id/cardViewID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:layout_below="@id/navBarID"
+        >
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardView"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             app:cardCornerRadius="15dp"
-            android:layout_marginTop="20dp"
-            >
+            android:layout_marginTop="2dp"
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -68,8 +84,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="3dp"
                     android:layout_marginBottom="41dp"
-                    android:textAlignment="textStart"
                     android:text="Owner Name"
+                    android:textAlignment="textStart"
                     android:textColor="#ffff"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -92,12 +108,16 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
+    </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/fragmentContainerID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cardViewID" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

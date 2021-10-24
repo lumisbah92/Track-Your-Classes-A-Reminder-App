@@ -1,7 +1,10 @@
 package com.example.firebaselearning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,14 +18,16 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-public class ClassActivity extends AppCompatActivity{
+public class ClassActivity extends AppCompatActivity {
 
-    private TextView subject,section,ownerName;
-    private BottomNavigationView navigationView;
+    private TextView className, section, ownerName;
     private String OwnerID = "OwnerID not set";
-    private String OwnerName ="OwnerName not set";
-    private String Subject ="Subject not set";
-    private String Section ="Section not set";
+    private String OwnerName = "OwnerName not set";
+    private String Subject = "Subject not set";
+    private String Section = "Section not set";
+
+    private GridLayout girdLayout;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,67 +35,74 @@ public class ClassActivity extends AppCompatActivity{
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerID, new ClassInfoFragment()).commit();
 
-        subject = findViewById(R.id.subjectcardID);
-        section = findViewById(R.id.sectionCardID);
-        ownerName = findViewById(R.id.ownerCardID);
+        className = findViewById(R.id.tvClassName);
+        section = findViewById(R.id.tvSection);
+        ownerName = findViewById(R.id.tvOwnerName);
 
         Bundle extras = getIntent().getExtras();
-        if(extras != null)
-        {
+        if (extras != null) {
             Subject = extras.getString("ClassName");
             Section = extras.getString("Section");
             OwnerName = extras.getString("OwnerName");
             OwnerID = extras.getString("OwnerID");
         }
-        OwnerID+=Subject;
-        subject.setText(Subject);
+        OwnerID += Subject;
+        className.setText(Subject);
         section.setText(Section);
         ownerName.setText(OwnerName);
 
-        navigationView = findViewById(R.id.navBarID);
-        navigationView.setOnNavigationItemSelectedListener(navListener);
+        girdLayout = findViewById(R.id.gridLayoutID);
+        setSingleEvent(girdLayout);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId())
-                {
-                    case R.id.ClassInfoID:
-                        ClassInfoFragment classInfoFragment = new ClassInfoFragment();
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        Bundle data = new Bundle();
-                        data.putString("OwnerID", OwnerID);
-                        classInfoFragment.setArguments(data);
-                        fragmentTransaction.replace(R.id.fragmentContainerID, classInfoFragment).commit();
-                        break;
-                    case R.id.ExamInfoID:
-                        ExamInfoFragment examInfoFragment = new ExamInfoFragment();
-                        FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
-                        Bundle data1 = new Bundle();
-                        data1.putString("OwnerID", OwnerID);
-                        examInfoFragment.setArguments(data1);
-                        fragmentTransaction1.replace(R.id.fragmentContainerID, examInfoFragment).commit();
-                        break;
-                    case R.id.AssignmentInfoID:
-                        AssignmentInfoFragment assignmentInfoFragment = new AssignmentInfoFragment();
-                        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-                        Bundle data2 = new Bundle();
-                        data2.putString("OwnerID", OwnerID);
-                        assignmentInfoFragment.setArguments(data2);
-                        fragmentTransaction2.replace(R.id.fragmentContainerID, assignmentInfoFragment).commit();
-                        break;
-                    case R.id.PresentationInfoID:
-                        PresentationInfoFragment presentationInfoFragment = new PresentationInfoFragment();
-                        FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
-                        Bundle data3 = new Bundle();
-                        data3.putString("OwnerID", OwnerID);
-                        presentationInfoFragment.setArguments(data3);
-                        fragmentTransaction3.replace(R.id.fragmentContainerID, presentationInfoFragment).commit();
-                        break;
-                }
+    private void setSingleEvent(GridLayout girdLayout) {
 
-                return true;
+        for(int i=0; i<girdLayout.getChildCount(); i++)
+        {
+            CardView cardView = (CardView) girdLayout.getChildAt(i);
+            final int index = i;
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(index == 0)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, ClassInfo.class);
+                        intent.putExtra("Title", "Class Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 1)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, ExamInfo.class);
+                        intent.putExtra("Title", "Exam Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 2)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, AssignmentInfo.class);
+                        intent.putExtra("Title", "Assignment Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 3)
+                    {
+                        Intent intent = new Intent(ClassActivity.this, PresentationInfo.class);
+                        intent.putExtra("Title", "Presentation Info");
+                        intent.putExtra("OwnerID", OwnerID);
+                        startActivity(intent);
+                    }
+                    else if(index == 4)
+                    {
+                        Toast.makeText(getApplicationContext(), "Settings Button is Clicked", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(index == 5)
+                    {
+                        Toast.makeText(getApplicationContext(), "More Button is Clicked", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
-    };
+
+    }
 }

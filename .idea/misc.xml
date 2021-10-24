@@ -101,6 +101,36 @@
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/more_menu_item.xml" value="0.1" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/my_navigation_items.xml" value="0.25" />
         <entry key="..\:/Track-Your-Classes-A-Reminder-App/app/src/main/res/menu/navigation_item.xml" value="0.1" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/add_file.xml" value="0.31574074074074077" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/class_info.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/class_setting.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/ic_baseline_class.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/ic_baseline_exam.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/more_class_info.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/drawable/presentation_info.xml" value="0.30925925925925923" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_assignment_info.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_class.xml" value="0.2" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_class_info.xml" value="0.3333333333333333" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_exam_info.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_presentation_info.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_profile.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/activity_temp.xml" value="0.31851851851851853" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/cardview_for_post.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/cardview_layout.xml" value="0.32592592592592595" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/dialog_create_class.xml" value="0.3388888888888889" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/dialog_for_alarm.xml" value="0.31851851851851853" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/dialog_for_edit_profile.xml" value="0.3388888888888889" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/fragment_assignment_info.xml" value="0.3333333333333333" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/fragment_class_info.xml" value="0.3333333333333333" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/nav_header.xml" value="0.31851851851851853" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/layout/temp_activity.xml" value="0.31851851851851853" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/add_menu_item.xml" value="0.29259259259259257" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/drop_down_menu.xml" value="0.29259259259259257" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/more_menu_item.xml" value="0.29259259259259257" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/my_navigation_items.xml" value="0.3564102564102564" />
+        <entry key="..\:/Track-Your-Classes/app/src/main/res/menu/navigation_item.xml" value="0.31851851851851853" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_forgot_password.xml" value="0.2916666666666667" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/FirebaseLearning/app/src/main/res/layout/activity_profile.xml" value="0.25" />

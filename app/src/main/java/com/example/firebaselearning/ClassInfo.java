@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +34,6 @@ public class ClassInfo extends AppCompatActivity {
     private EditText postEditText;
     private String OwnerID = "OwnerID not set";
     private String Title = "Title not set";
-    private String ClassName = "ClassName";
     private RecyclerView recyclerView;
     private ArrayList<PostingModel> list;
     private AdapterClassForPost adapterClassForPost;
@@ -49,9 +49,7 @@ public class ClassInfo extends AppCompatActivity {
         if (extras != null) {
             Title = extras.getString("Title");
             OwnerID = extras.getString("OwnerID");
-            ClassName = extras.getString("ClassName");
         }
-        OwnerID += ClassName;
         title.setText(Title);
 
 
@@ -99,14 +97,16 @@ public class ClassInfo extends AppCompatActivity {
             }
         });
 
-        // RecyclerView for Post
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+
+
+        // Recycler View for Post
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<>();
-        adapterClassForPost = new AdapterClassForPost(getApplicationContext(), list);
+        adapterClassForPost = new AdapterClassForPost(this, list);
         recyclerView.setAdapter(adapterClassForPost);
 
         postingDatabase.child(OwnerID).addValueEventListener(new ValueEventListener() {
@@ -122,10 +122,11 @@ public class ClassInfo extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getApplicationContext(), "Database not found", Toast.LENGTH_SHORT).show();
             }
         });
 
+        // Swipe Refresh Layout
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

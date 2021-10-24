@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -27,8 +26,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPost.MyViewHolder>{
-    private Context context;
-    private ArrayList<PostingModel> list;
+
+    Context context;
+    ArrayList<PostingModel>list;
 
     private TextView tvOnceTime, tvOnceDate, tvRepeatingTime;
     private ImageButton ibOnceTime, ibOnceDate, ibRepeatingTime;
@@ -46,15 +46,16 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
 
     @NonNull
     @Override
-    public AdapterClassForPost.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.cardview_for_post, parent, false);
-        return new MyViewHolder(view);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.cardview_for_post, parent, false);
+        return new MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterClassForPost.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         PostingModel postingModel = list.get(position);
-        holder.Post.setText(postingModel.getPost());
+        holder.post.setText(postingModel.getPost());
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +86,25 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
         });
     }
 
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+        TextView post;
+        ImageView moreBtn;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            post = itemView.findViewById(R.id.PostCardID);
+            moreBtn = itemView.findViewById(R.id.MoreID);
+        }
+    }
+
+    // Set Alarm
     public void  setAnAlarm() {
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_for_alarm);
@@ -216,22 +236,5 @@ public class AdapterClassForPost extends RecyclerView.Adapter<AdapterClassForPos
         });
 
         dialog.show();
-    }
-
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-
-        TextView Post;
-        ImageView moreBtn;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            Post = itemView.findViewById(R.id.PostCardID);
-            moreBtn = itemView.findViewById(R.id.MoreID);
-        }
     }
 }

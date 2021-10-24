@@ -303,6 +303,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Button UploadImgBtn;
     private ProgressDialog progressDialog;
     private StorageReference storageReference;
+
     private Uri imageUri;
 
     void showDialogForEditProfile(){
